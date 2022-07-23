@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}View Tracker{% endblock %}
+{% block content %}
+<a href = '/home'><button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white; margin-left: 90%; margin-top: 2%;"><b>Home</b></button></a>
+<h5><li style="margin-left:2%; margin-top: 2%;">Details</li></h5>
+<br>
+<div class="details" style = "margin-left: 2%;">
+    <h6>Tracker id : {{tracker.id}}</h6>
+    <h6>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{tracker.name}}</h6>
+    <h6>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{tracker.tracker_type}}</h6>
+    <h6>Settings&nbsp;&nbsp;&nbsp;: {{tracker.settings}}</h6>
+    <h6>Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{tracker.details}}</h6>
+    {% if tracker.tracker_type == 'Multiple choice'%}
+      <h6>Options&nbsp;&nbsp;&nbsp;: {{sl}}</h5>
+    {% endif %}
+</div>
+<br>
+<h5><li style="margin-left:2%;">Stats/Trendlines</li></h5>
+<br>
+<img src = "/static/graph.png" alt="graph" widhth="500" height="500" style="margin-left:5%;">
+<br>
+<br>
+<h5><li style="margin-left:2%;">Logs</li></h5>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse:separate;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
+<table style="width: 65%;">
+    <tr>
+      <th>Id</th>
+      <th>Time Stamp</th>
+      <th>Value</th>
+      <th>Notes</th>
+      <th>Added Date & Time</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+      <td>{{log.id}}</td>
+      <td>{{log.timestamp}}</td>
+      <td>{{log.value}}</td>
+      <td>{{log.notes}}</td>
+      <td>{{log.added_date_time}}</td>
+      <td><button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e);"><a href="{{url_for('editlog', log_id = log.id)}}" style = "color: #ffff";>Edit</a></button></td></a>
+      <td><button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); "><a href="{{url_for('deletelog', log_id = log.id)}}" style = "color: #ffff";>Remove</a></button></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<div class =''>
+<a href="{{url_for('addlog', tracker_id = tracker.id)}}"><button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white; margin-left: 2%;"><b>Add log for this tracker</b>
+<button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); margin-left:80%"><a href = "{{url_for('exportlog', tracker_id = tracker.id)}}" style="color: #ffff;">Export logs for this tracker</a></button>
+<br><br>
+<button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); margin-left:80%"><a href = "{{url_for('importlog', tracker_id = tracker.id)}}" style="color: #ffff;">Import logs for this tracker</a></button>
+</div>
+{% endblock %}

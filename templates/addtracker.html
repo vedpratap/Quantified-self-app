@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Add Tracker{% endblock %}
+{% block content %}
+
+<style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+    }
+</style>
+<a href = '/home'><button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white; margin-left: 90%; margin-top: 2%;"><b>Home</b></button></a>
+<div class="content">
+    <form method="post">
+        <div class="form-group">
+            <h2 style="margin-top:2%; margin-left:2%">Add Tracker</h2>
+            <br>
+            <label for="name"><b>Your user id</b></label>
+            <input
+                type="text"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="{{user.id}}"
+                maxlength="30"
+                style="width: 300px; border-radius: 15px; text-align: center"/>
+            <label for="name"><b>Name</b></label>
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter tracker name"
+                maxlength="30"
+                style="width: 300px; border-radius: 15px; text-align: center"
+                required/>
+            <label for="description"><b>Details</b></label>
+            <textarea
+                class="form-control"
+                id="details"
+                name="details"
+                placeholder="Enter tracker details"
+                maxlength="200"
+                style="width: 300px; border-radius: 15px; text-align: center"
+                required></textarea>
+            
+                <label for="description"><b>Setting</b></label>
+                <textarea
+                    class="form-control"
+                    id="setting"
+                    name="setting"
+                    placeholder="Enter setting (Optional)"
+                    maxlength="200"
+                    style="width: 300px; border-radius: 15px; text-align: center"
+                    optional></textarea>
+    
+            <label style="padding-top: 10px" for="type"><b>Tracker Type</b></label>
+                <select style="width: 300px;border-radius: 15px; text-align: center" id="type"  class="form-control"  name="type" required>
+                    <option value="Numerical">Numerical</option>
+                    <option value="Time duration">Time duration</option>
+                    <option value="Boolean">Boolean</option>
+                    <option value="Multiple choice">Multiple choice</option>
+               </select>
+               <br>
+               <label for="description"><b style="color:crimson">Options (Only in case Multiple choice tracker, separated by space.)</b></label>
+               <textarea
+                   type = "text"
+                   class="form-control"
+                   id="options"
+                   name="options"
+                   placeholder="Enter options"
+                   maxlength="200"
+                   style="width: 300px; border-radius: 15px; text-align: center"
+                   optional></textarea>
+            <br>
+            <button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white;"><b>Add Tracker</b></button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

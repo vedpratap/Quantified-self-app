@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<a href = '/home'><button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white; margin-left: 90%; margin-top: 2%;"><b>Home</b></button></a>
+<section class="vh-80" style="background-color:white;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem; width:100%;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h2>Edit Profile</h2>
+                  <form method="post">
+                    <div class="form-group">
+                      <br>
+                        <label for="name"><b>Full Name</b></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            maxlength="30"
+                            style="width: 300px;text-align: center"
+                            value = "{{user.fullname}}"
+                            required/>
+                
+                        <label for="email"><b>Email Address</b></label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            maxlength="35"
+                            style="width: 300px;text-align: center"
+                            value = {{user.email}}
+                            required
+                        />
+                
+                        <label style="padding-top: 10px" for="city"><b>City</b></label>
+                        <select style="width: 300px;text-align: center" id="city"  class="form-control"  name="city" value = {{user.city}}required>
+                          <option value="Patna">Patna</option>
+                          <option value="Mumbai">Mumbai</option>
+                          <option value="Pune">Pune</option>
+                          <option value="Bengaluru">Bengaluru</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="Hyderabad">Hyderabad</option>
+                          <option value="Ahmedabad">Ahmedabad</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Kolkata">Kolkata</option>
+                          <option value="Surat">Surat</option>
+                          <option value="Jaipur">Jaipur</option>
+                          <option value="Lucknow">Lucknow</option>
+                          <option value="Kanpur">Kanpur</option>
+                          <option value="Nagpur">Nagpur</option>
+                          <option value="Indore">Indore</option>
+                          <option value="Thane">Thane</option>
+                          <option value="Madurai">Madurai</option>
+                        </select>
+                            <br>
+                          <button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e,#33110e); color:#ffff">Update</button>
+                    </div>
+                </form>
+                  <p class="mb-5 pb-lg-2" style="color: #33110e;">Don't want? <a href="/viewprofile" style="color: #33110e; font-weight: bold;">Go to profile</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse:separate;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+<h3 style="margin-top: 2%; margin-left:2%; color:#33110e">Welcome !! {{user.fullname}}  (User id : {{user.id}})</h3>
+<button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); margin-left:80%"><a href = '/viewprofile' style="color: #ffff;">View Profile</a></button>
+<button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e);"><a href="/logout" style="color: #ffff;">Logout</a></button>
+<h5><li style="margin-left:2%">Last reviewed data</li></h5>
+<br>
+<table style="width: 65%;">
+  <tr>
+    <th>Tracker</th>
+    <th>Last review</th>
+    <th>Last Value</th>
+  </tr>
+  {% for i in range(l)%}
+  <tr>
+    <td><b>{{name[i]}}</b></td>
+    <td>{{ltime[i]}}</td>
+    <td>{{lvalue[i]}}</td>
+  </tr>
+  {% endfor%}
+</table>
+<br>
+<h5><li style="margin-left:2%">Your Trackers</li></h5>
+<button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); margin-left:75%"><a href = "{{url_for('exportlogsall')}}" style="color: #ffff;">Export logs for your all trackers</a></button>
+<br>
+<br>
+<table>
+    <tr>
+      <th>Tracker</th>
+      <th>Details</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for tracker in tracker %}
+    {% if tracker.customer_id == user.id  %}
+    <tr>
+        {% set tracker_id = tracker.id %}
+      <td><a href="{{url_for('viewtracker', tracker_id = tracker_id)}}"><b style="color:rgb(49, 81, 210)">{{tracker.name}}</b></a></td>
+      <td>{{tracker.details}}</td>
+      <td>{{tracker.tracker_type}}</td>
+      <td><a href = "{{url_for('edittracker', tracker_id = tracker_id)}}"><button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color: #ffff;">Edit</button></td></a>
+      <td><a href="{{url_for('addlog', tracker_id = tracker_id)}}"><button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color: #ffff;">Log</button></td></a>
+      <td><a href="{{url_for('removetracker', tracker_id = tracker_id)}}"><button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color: #ffff;">Remove</button></td></a>
+      
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+<br>
+
+<a href="/addtracker"><button  class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color: #ffff; margin-left:2%">Click here for add a tracker</button></a>
+
+
+
+{% endblock %}

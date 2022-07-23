@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <title>{% block title %}Base{% endblock %}</title>
+    </head>
+    <body>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-light" style="height:80px;box-shadow: 0 1px 1px 1px lightgray;background:#efefef">
+            <a href="#" style="margin-top: -25px;">
+              <img src="/static/transparent_logo.png" width="120" height="120" alt="logo">
+            </a>
+            <a style="margin-right:44%; margin-top:-32px; "><h2 style = "font-family: Copperplate, Papyrus, fantasy;"><b>Quantified self app</b></h2></a>
+        </nav>
+        <!--End of Nav Bar-->
+        
+        <!--Flash message-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center;">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+
+        <!--Content of each page-->
+        {% block content %}
+
+
+        {% endblock %}
+        <!--End of Content of each page-->
+
+        <br><br><br>
+        <!--Footer-->
+        <footer class="text-center text-white" style="background-color:#33110e;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                 <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                         <i class="bi bi-facebook"></i>
+                    </a>
+                 <!-- Twitter -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/vedpratap_/" role="button">
+                         <i class="bi bi-twitter"></i>
+                    </a>
+                 <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/vedpratap_/" role="button">
+                         <i class="bi bi-instagram"></i>
+                    </a>
+                 <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/ved-pratap-9a7b72208/" role="button">
+                         <i class="bi bi-linkedin"></i>
+                    </a>
+                 <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/vedpratap" role="button">
+                         <i class="bi bi-github"></i>
+                    </a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+            <hr color="white" width="90%">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color:#33110e;">
+                <h5>Quantified Self Application</h5>
+                <p>© 2022 Ved Pratap. All rights reserved.</p>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!--end of Footer-->
+
+<!--scripts-->
+<script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-duration-picker@latest/dist/html-duration-picker.min.js"></script>
+<!--end of scripts-->
+</body>
+</html>

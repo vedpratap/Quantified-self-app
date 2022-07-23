@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}Edit Log{% endblock %}
+{% block content %}
+
+<style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+    }
+</style>
+
+<a href = '/home'><button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white; margin-left: 90%; margin-top: 2%;"><b>Home</b></button></a>
+<div class="content">
+    <form method="post">
+        <div class="form-group">
+            <h2 style="margin-top:2%; margin-left:2%">Edit Log for {{tracker.name}}</h2>
+            <br>
+            <label for="date"><b>When</b> </label>
+            <input
+            type="datetime-local"
+            class="form-control"
+            id="date"
+            name="date"
+            style="width: 300px; border-radius: 15px; text-align: center"
+            value= "{{log.timestamp}}"
+            required/>
+            <br>
+            {% if tracker.tracker_type=='Numerical'%}
+            <label for="value"><b>Value:</b> </label>
+               <input
+               type="number"
+               class="form-control"
+               id="value"
+               name="value"
+               placeholder="Enter Number"
+               maxlength="30"
+               style="width: 300px; border-radius: 15px; text-align: center"
+               value = "{{log.value}}"
+               required/>
+            {% elif tracker.tracker_type=='Time duration' %}
+                <br>
+                <label for="value"><b>Value (Hr : mins : sec)</b> </label>
+                <input
+                class="html-duration-picker"
+                type="text"
+                id="value"
+                name="value"
+                placeholder="Enter Time duration"
+                maxlength="30"
+                style="width: 200px; text-align: center"
+                value = "{{log.value}}"
+                required/>
+            {% elif tracker.tracker_type=='Multiple choice'%}
+                <label for="value"><b>Value:</b> </label>
+                <select style="width: 300px;text-align: center;border-radius: 15px;" id="value"  class="form-control"  name="value" required>
+                    {% for i in sl%}
+                    <option value={{i}}>{{i}}</option>
+                    {% endfor%}
+                </select>
+            {% elif tracker.tracker_type=='Boolean'%}
+                <br>
+                <label for="value"><b>Value:</b> </label>
+                <br>
+                <input type="radio" id="value" name="value" value="True" checked>
+                    <label for="value">True</label><br>
+                <input type="radio" id="value" name="value" value="False">
+                    <label for="value">False</label><br>
+            {% endif %}
+            <br>
+            <label for="notes"><b>Notes:</b> </label>
+            <textarea
+            class="form-control"
+            id="notes"
+            name="notes"
+            placeholder="Enter log notes"
+            maxlength="200"
+            style="width: 300px; border-radius: 15px; text-align: center"
+            value = "{{log.notes}}"
+            required></textarea>
+
+            <br>
+            <button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color:white;"><b>Update log</b></button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

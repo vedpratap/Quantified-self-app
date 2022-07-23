@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+
+<section class="vh-90" style="background-color:white;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem; width:100%; ">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="static/tracker.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h2>Login</h2>
+                  <form method="post">
+                    <h3 text-align="center"></h3>
+                    <div class="form-group">
+                        <br>
+                        <label for="email"><b>Email Address</b></label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            style="width: 300px;text-align: center"
+                            required/>
+                
+                        <label for="password"><b>Password</b></label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            style="width: 300px;text-align: center"
+                            required/>
+                            <br>
+                        <button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e, #33110e); color: #ffff;">Login</button>
+                        <p class="mb-5 pb-lg-2" style="color: #33110e;">Don't have an account? <a href="/signup" style="color: #33110e; font-weight: bold;">Sign Up</a></p>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

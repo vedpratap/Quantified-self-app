@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+<section class="vh-90" style="background-color:white;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem; width:100%;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="static/tracker.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <h2>Sign Up</h2>
+                  <form method="post">
+                    <div class="form-group">
+                      <br>
+                        <label for="name"><b>Full Name</b></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            maxlength="30"
+                            style="width: 300px;text-align: center"
+                            required/>
+                
+                        <label for="email"><b>Email Address</b></label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            maxlength="35"
+                            style="width: 300px;text-align: center"
+                            required
+                        />
+                
+                        <label style="padding-top: 10px" for="city"><b>City</b></label>
+                        <select style="width: 300px;text-align: center" id="city"  class="form-control"  name="city" required>
+                          <option value="Patna">Patna</option>
+                          <option value="Mumbai">Mumbai</option>
+                          <option value="Pune">Pune</option>
+                          <option value="Bengaluru">Bengaluru</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="Hyderabad">Hyderabad</option>
+                          <option value="Ahmedabad">Ahmedabad</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Kolkata">Kolkata</option>
+                          <option value="Surat">Surat</option>
+                          <option value="Jaipur">Jaipur</option>
+                          <option value="Lucknow">Lucknow</option>
+                          <option value="Kanpur">Kanpur</option>
+                          <option value="Nagpur">Nagpur</option>
+                          <option value="Indore">Indore</option>
+                          <option value="Thane">Thane</option>
+                          <option value="Madurai">Madurai</option>
+                        </select>
+                
+                        <label for="password1"><b>Password</b></label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            maxlength="10"
+                            style="width: 300px;text-align: center"
+                            required/>
+                            <br>
+                          <button class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #33110e,#33110e); color:#ffff">Sign Up</button>
+                    </div>
+                </form>
+                  <p class="mb-5 pb-lg-2" style="color: #33110e;">Have an account? <a href="/" style="color: #33110e; font-weight: bold;">Login</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
