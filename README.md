@@ -1,3 +1,7 @@
+# About
+
+- This is a **Quantified Self app** which can tracks daily activities.
+- It was a project for the course **Modern Application Development 1** of **BS Degree (4 Yrs)** at **IIT Madras**.
 
 # How to run the code?
 
