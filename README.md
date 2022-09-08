@@ -19,5 +19,7 @@
 ## Link
 https://project01.vedpratap1.repl.co/
 
+**Note :** If you are using the above link in phone, please use it in ***desktop*** mode.
+
 
 
