@@ -3,4 +3,3 @@ flask_login
 jinja2
 flask_sqlalchemy
 pandas
-os
